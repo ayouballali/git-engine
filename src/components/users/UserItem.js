@@ -1,28 +1,25 @@
-import axios from "axios";
+import axios from 'axios';
+import React, { useLayoutEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
+import User from './user';
 
-import React, { Component } from "react";
+export default function UserItem(props) {
+const [user,setUser] = useState({})
+const {login} = useParams()
+    useLayoutEffect(() => {
+        
+        
 
-export default class UserItem extends Component {
-  
-    state = {
-        user:{}
-    }
-  
-    componentDidMount() { 
+        axios.get(`https://api.github.com/users/${login}`)
+            .then(response=>{
+                console.log(response.data);
+                setUser(response.data)
+            })
+      }, []);
 
-    const { login } = this.props.postId;
-
-   
-    axios
-      .get(`https://api.github.com/users/${login}`)
-      .then((response) => {
-        this.setUser({
-            user:response.data
-        });
-      });
-  }
-
-  render() {
-    return <div>UserItem</div>;
-  }
+  return (
+    <div>
+        <User user={user}/>
+    </div>
+  )
 }

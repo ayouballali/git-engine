@@ -29,7 +29,7 @@ export default function SearchUsers(props) {
             placeholder="search for users"
           />
         </div>
-        <button className="btn btn-danger btn-block">Search</button>
+        <button className="btn btn-success btn-block">Search</button>
       </form>
     </div>
   );

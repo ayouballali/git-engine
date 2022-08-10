@@ -12,7 +12,7 @@ function App() {
         <div className="container mt-2">
           <Routes>
             <Route exact path="/users" element={<Users />} />
-            <Route exact path="/users/:login" render={({match}) => (<UserItem postId={match.params.id} /> )} element={<UserItem/>}  />  
+            <Route exact path="/users/:login"  element={<UserItem/>}  />  
             <Route exact = {true} path='*' element={<Users />} />
           </Routes>
         </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export default function User(props) {
 
@@ -10,11 +11,11 @@ export default function User(props) {
     <div className="card-body">
       <h4 className="card-title">{login}</h4>
       <p className="card-text">
-        <a className="btn btn-success" href={html_url} role="button">
+        <Link className="btn btn-primary" to={'/users/'+login} role="button">
           Show more
-        </a>
+        </Link>
         <a
-          className="btn btn-warning"
+          className="btn btn-primary-alt"
           href={repos_url}
           role="button"
         >
